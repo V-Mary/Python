@@ -11,17 +11,13 @@ def main():
 
     regex_1 = r'72.30.79.46 - - \[(\d{2}\/\D{3}\/\d{4}):(\d{2}:\d{2}:\d{2}) ' \
               r'\+(0100|2000)] "GET /images/(.+)" 200 (.+)'
-    regex_2 = r'90.7.158.134 - - \[(\d{2}\/\D{3}\/\d{4}):(\d{2}:\d{2}:\d{2}) ' \
-            r'\+(0100|2000)] "GET /images/(.+)" 200 (.+)'
 
     with open(input_file, 'r') as file:
         counter = 0
         for line in file.readlines():
             found_1 = re.match(regex_1, line)
-            found_2 = re.match(regex_2, line)
             if found_1 or found_2:
                 print(found_1)
-                print(found_2)
                 counter += 1
     print(f'The number of successful GET: {counter}')
 
