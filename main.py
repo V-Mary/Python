@@ -63,7 +63,7 @@ def chainsaw_detail(id):
     return chainsaw_schema.jsonify(chainsaw)
 
 
-@app.route("/user/<id>", methods=["PUT"])
+@app.route("/chainsaw/<id>", methods=["PUT"])
 def chainsaw_update(id):
     chainsaw = Chainsaw.query.get(id)
     if not chainsaw:
